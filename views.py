@@ -90,8 +90,12 @@ class ExcelReporter:
             date = list(date_group.keys())[0]
             group = date_group[date]
 
-            worksheet.merge_range(
-                row, 0, len(group), 0, date, center_formatter)
+            if len(group) > 1:
+                worksheet.merge_range(
+                    row, 0, len(group)+row-1, 0, date, center_formatter)
+            else:
+                worksheet.write(row, col, date, center_formatter)
+
             for item in group:
                 worksheet.write(row, col + 1, item['name'], wrap_formatter)
                 worksheet.write(
