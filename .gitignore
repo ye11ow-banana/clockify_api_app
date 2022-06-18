@@ -133,3 +133,6 @@ dmypy.json
 
 # Environment variables
 setenv.sh
+
+# Report file
+report.xlsx

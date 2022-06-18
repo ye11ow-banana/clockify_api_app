@@ -8,7 +8,7 @@ git clone https://github.com/ye11ow-banana/clockify_api_app.git
 cd clockify_api_app
 ```
 
-In the file `clockify.py` on lines 13, 14, 15 replace `os.getenv(...)` with `"<your key or id>"`
+In the file `clockify.py` on lines 52, 53, 54, 55 replace `os.getenv(...)` with `"<your key or id>"`
 
 Unix:
 ```sh
