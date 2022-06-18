@@ -21,7 +21,7 @@ def _convert_to_int_if_int(string: str) -> int | str:
 
 def _to_int_serial_numbers(string: str) -> list[str | int]:
     """Convert to `int` serial numbers of the string."""
-    return [_convert_to_int_if_int(s) for s in re.split(r'(\d+)', string)]
+    return [_convert_to_int_if_int(s) for s in re.split(r"(\d+)", string)]
 
 
 def sort_tasks_names_by_serial_numbers(tasks_names: list[str]) -> list[str]:
@@ -89,7 +89,7 @@ def create_report_data_to_show(report_data: list[dict]) -> tuple:
 def _to_int_serial_numbers_from_dict(time_entry: dict) -> list[str | int]:
     """Convert to `int` serial numbers of the dict."""
     return [_convert_to_int_if_int(c) for c in re.split(
-        r'(\d+)', time_entry["name"])]
+        r"(\d+)", time_entry["name"])]
 
 
 def sort_all_info_report(all_info_report: list[dict]) -> list[dict]:

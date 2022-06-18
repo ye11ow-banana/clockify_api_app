@@ -20,9 +20,9 @@ class ExcelReporter:
     def __init__(self, name: str):
         self._name = name
         self.main_format = {
-                'align': 'center',
-                'valign': 'vcenter',
-                'font_size': 14
+                "align": "center",
+                "valign": "vcenter",
+                "font_size": 14
             }
 
     @staticmethod
@@ -33,9 +33,9 @@ class ExcelReporter:
         """Create `worksheet` with 3 needed headers."""
         worksheet = workbook.add_worksheet(name)
 
-        worksheet.write('A1', headers_names[0], formatter)
-        worksheet.write('B1', headers_names[1], formatter)
-        worksheet.write('C1', headers_names[2], formatter)
+        worksheet.write("A1", headers_names[0], formatter)
+        worksheet.write("B1", headers_names[1], formatter)
+        worksheet.write("C1", headers_names[2], formatter)
 
         return worksheet
 
@@ -60,9 +60,9 @@ class ExcelReporter:
         col = 0
 
         for _ in all_info_report:
-            worksheet.write(row, col, _['name'], wrap_formatter)
-            worksheet.write(row, col + 1, _['description'], center_formatter)
-            worksheet.write(row, col + 2, _['duration'], center_formatter)
+            worksheet.write(row, col, _["name"], wrap_formatter)
+            worksheet.write(row, col + 1, _["description"], center_formatter)
+            worksheet.write(row, col + 2, _["duration"], center_formatter)
             row += 1
 
     def _create_grouped_by_dates_report_worksheet(
@@ -97,9 +97,9 @@ class ExcelReporter:
                 worksheet.write(row, col, date, center_formatter)
 
             for item in group:
-                worksheet.write(row, col + 1, item['name'], wrap_formatter)
+                worksheet.write(row, col + 1, item["name"], wrap_formatter)
                 worksheet.write(
-                    row, col + 2, item['duration'], center_formatter)
+                    row, col + 2, item["duration"], center_formatter)
                 row += 1
 
     def create_formatters(self, workbook) -> tuple:
@@ -108,12 +108,12 @@ class ExcelReporter:
         special styles in `Excel` file.
         """
         header_formatter = workbook.add_format(
-            self.main_format | {'bold': True})
+            self.main_format | {"bold": True})
         center_formatter = workbook.add_format(self.main_format)
 
         wrap_format = self.main_format.copy()
         wrap_format.pop("align")
-        wrap_formatter = workbook.add_format(wrap_format | {'text_wrap': True})
+        wrap_formatter = workbook.add_format(wrap_format | {"text_wrap": True})
 
         return header_formatter, center_formatter, wrap_formatter
 
